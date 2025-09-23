@@ -1,10 +1,11 @@
 import java.util.Scanner;
-import Rubronegra.java;
+import Rubronegra;
 
-public class Main_RN {
+public class Main{
     
     Scanner imput = new Scanner(System.in);
     int op;
+    pilhas.Rubronegra rubronegra = new pilhas.Rubronegra();
 
     public static void Main (){
         System.out.println("pilha rubronegra");
@@ -52,7 +53,7 @@ public class Main_RN {
 
             case 5:
                 System.out.println("topo da pilha vermelha:");
-                system.out.println(pilhas.Rubronegra.Pop_Vermelha());
+                system.out.println(pilhas.Rubronegra.Top_Vermelho());
                 Main();
 
             case 6:
@@ -61,7 +62,8 @@ public class Main_RN {
 
             case 7:
                 System.out.println("SIZE_Vermelho");
-                break;
+                system.out.println(pilhas.Rubronegra.Size_Vermelho());
+                Main();
 
             case 8:
                 System.out.println("SIZE_Preto");
@@ -70,6 +72,9 @@ public class Main_RN {
             case 9:
                 System.out.println("ISEMPTY_Vermelho");
                 break;
+                System.out.println("SIZE_Vermelho");
+                system.out.println(pilhas.Rubronegra.ISEMPTY_Vermelho());
+                Main();
 
             case 10:
                 System.out.println("ISEMPTY_Preto");

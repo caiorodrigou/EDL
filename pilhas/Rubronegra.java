@@ -1,7 +1,10 @@
 public class Rubronegra {
 
     public class Pilha_Vermelha {  
-        public int size(tamanho_array){};    
+        public int size(){
+            int tamanho_array = 5;
+            return tamanho_array;
+        };    
         public boolean isEmpty();
         public Object top() throws PilhaVaziaExcecao;
         public void push(Object o);
@@ -19,7 +22,7 @@ public class Rubronegra {
     //1
     public void Push_Vermelha (array){ 
         if (t_vermelho == S.length - 1) {
-            throw new PilhaCheiaExcecao("Pilha está cheia. Não é possível adicionar mais elementos.");
+            throw PilhaCheiaExcecao("Pilha está cheia. Não é possível adicionar mais elementos.");
         } else {
             t = t + 1;
             S[t] = o;
@@ -63,4 +66,13 @@ public class Rubronegra {
       
     }
 
-}
+    //9
+    public boolean ISEMPTY_Vermelho (int t_vermelho){ 
+        return t_vermelho == -1;
+
+    }
+
+    //10
+    public boolean ISEMPTY_Preto (int t_preto){ 
+        
+    }
