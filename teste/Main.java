@@ -6,6 +6,12 @@ public class Main {
     Metodos pilha = new Metodos(5,0);
     
     public void menu(){
+        //Sempre que o array (que contém as duas pilhas) estiver com 1/3 de utilização, usar a estratégia de REDUÇÃO  do tamanho do array pela metade.
+        int Um_terco_utilizado = (pilha.capacidade / 3);
+        if ((pilha.size_vermelho() + pilha.size_preto()) <= Um_terco_utilizado){
+            pilha.reduzirArray();
+        }
+
         System.out.println();
         System.out.println("ESCOLHA UMA OPÇÃO");
         System.out.println("1 - Push Vermelho / 6 - Push Preto");
@@ -65,6 +71,32 @@ public class Main {
                 menu();
             }
 
+            case 7 -> {
+                pilha.pop_preto();
+                pilha.print();
+                menu();
+            }
+
+            case 8 -> {
+                System.out.println();
+                System.out.println("topo da pilha :" + pilha.top_preto());
+                menu();
+            }   
+
+            case 9 -> {
+                System.out.println();
+                System.out.println("tamanho da pilha :" + pilha.size_preto());
+                pilha.print();
+                menu();
+            }
+
+            case 10 -> {
+                System.out.println();
+                System.out.println(pilha.isEmpty_preto());
+                menu();
+            }   
+
+
             case 11 -> {
                 System.out.println("Saindo...");
                 break;
@@ -74,6 +106,8 @@ public class Main {
                 System.out.println("Opção inválida. Tente novamente.");
                 menu();
             }
+
+
         }
     }
     public static void main(String[] args) {
