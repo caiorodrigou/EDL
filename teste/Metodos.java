@@ -24,12 +24,14 @@ public class Metodos {
                 for (int i = 0; i < itens.length; i++){
                     novo[i] = itens[i];
                 }
+                this.capacidade = novo.length;
                 itens = novo;
             } else if (FC == 0) {
                 Object[] novo = new Object[itens.length + itens.length];
                 for (int i = 0; i < itens.length; i++){
                     novo[i] = itens[i];
                 }
+                this.capacidade = novo.length;
                 itens = novo;
             } else {
                 System.out.println("Pilha está cheia. Não é possível adicionar mais elementos.");
@@ -42,9 +44,9 @@ public class Metodos {
            
     }
 
-    public Object pop (){
-        if (t == 0){
-            
+    public Object pop () throws PilhaVaziaExcecao {
+        if (t == -1){
+            System.out.println();
             System.out.println("Pilha está vazia. Não é possível remover mais elementos.");
             return null;
         } else {
@@ -57,8 +59,11 @@ public class Metodos {
         return removido;
     }
 
-    public Object top (){
-
+    public Object top () throws PilhaVaziaExcecao {
+        if (t == -1){
+            System.out.println("Pilha está vazia. Não é possível ver o topo da pilha.");
+            return null;
+        }
         return itens[t];
     }
 
@@ -66,12 +71,20 @@ public class Metodos {
         return t + 1;
     }
 
+    public boolean isEmpty(){
+        return t==-1;
+    }
+
     public void print (){
         System.out.println();
+        System.out.println("----------------------------------");
         System.out.print("Pilha: ");
         for (int i = 0; i <= t; i++){
             System.out.print(itens[i] + " ");
         }
+        System.out.print("  /  ");
+        System.out.println("tamanho do array: " + capacidade);
+        System.out.println("----------------------------------");
         System.out.println();
     }
 }

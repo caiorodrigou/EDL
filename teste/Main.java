@@ -21,6 +21,7 @@ public class Main {
         switch (op) {
 
             case 1 -> {
+                System.out.println();
                 System.out.println("Digite o valor que deseja adicionar");
                 int valor = imput.nextInt();
                 pilha.push(valor);
@@ -34,24 +35,32 @@ public class Main {
                 menu();
             }
             case 3 -> {
-            System.out.println("topo da pilha :" + pilha.top());
+                System.out.println();
+                System.out.println("topo da pilha :" + pilha.top());
                 menu();
             }   
 
             case 4 -> {
-            System.out.println("tamanho da pilha :" + pilha.size());
+                System.out.println();
+                System.out.println("tamanho da pilha :" + pilha.size());
                 pilha.print();
                 menu();
             }
 
             case 5 -> {
-                System.out.println("Saindo...");
-                break;
+                System.out.println();
+                pilha.isEmpty();
+                System.out.println();
+                menu();
             }   
 
             case 6 -> {
                 System.out.println("Saindo...");
                 break;
+            }
+            default -> {
+                System.out.println("Opção inválida. Tente novamente.");
+                menu();
             }
         }
     }
