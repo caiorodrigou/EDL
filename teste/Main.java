@@ -1,16 +1,16 @@
+
 package teste;
+
 import java.util.Scanner;
+
 public class Main {
 
     Scanner imput = new Scanner(System.in);
-    Metodos pilha = new Metodos(5,0);
-    
-    public void menu(){
-        //Sempre que o array (que contém as duas pilhas) estiver com 1/3 de utilização, usar a estratégia de REDUÇÃO  do tamanho do array pela metade.
-        int Um_terco_utilizado = (pilha.capacidade / 3);
-        if ((pilha.size_vermelho() + pilha.size_preto()) <= Um_terco_utilizado){
-            pilha.reduzirArray();
-        }
+    RubroNegra pilha = new RubroNegra(5, 0);
+
+    public void menu() {
+        // Sempre que o array (que contém as duas pilhas) estiver com 1/3 de utilização,
+        // usar a estratégia de REDUÇÃO do tamanho do array pela metade.
 
         System.out.println();
         System.out.println("ESCOLHA UMA OPÇÃO");
@@ -35,18 +35,24 @@ public class Main {
                 pilha.push_vermelho(valor);
                 pilha.print();
                 menu();
+
             }
-    
+
             case 2 -> {
                 pilha.pop_vermelho();
+                int Um_terco_utilizado = (pilha.capacidade / 3);
+                if ((pilha.size_vermelho() + pilha.size_preto()) <= Um_terco_utilizado) {
+                    pilha.reduzirArray();
+                }
                 pilha.print();
                 menu();
+
             }
             case 3 -> {
                 System.out.println();
                 System.out.println("topo da pilha :" + pilha.top_vermelho());
                 menu();
-            }   
+            }
 
             case 4 -> {
                 System.out.println();
@@ -60,7 +66,7 @@ public class Main {
                 pilha.isEmpty_vermelho();
                 System.out.println();
                 menu();
-            }   
+            }
 
             case 6 -> {
                 System.out.println();
@@ -73,6 +79,10 @@ public class Main {
 
             case 7 -> {
                 pilha.pop_preto();
+                int Um_terco_utilizado = (pilha.capacidade / 3);
+                if ((pilha.size_vermelho() + pilha.size_preto()) <= Um_terco_utilizado) {
+                    pilha.reduzirArray();
+                }
                 pilha.print();
                 menu();
             }
@@ -81,7 +91,7 @@ public class Main {
                 System.out.println();
                 System.out.println("topo da pilha :" + pilha.top_preto());
                 menu();
-            }   
+            }
 
             case 9 -> {
                 System.out.println();
@@ -94,26 +104,25 @@ public class Main {
                 System.out.println();
                 System.out.println(pilha.isEmpty_preto());
                 menu();
-            }   
-
+            }
 
             case 11 -> {
                 System.out.println("Saindo...");
                 break;
             }
-            
+
             default -> {
                 System.out.println("Opção inválida. Tente novamente.");
                 menu();
             }
 
-
         }
     }
+
     public static void main(String[] args) {
 
         Main meuPrograma = new Main();
         meuPrograma.menu();
     }
-     
+
 }
