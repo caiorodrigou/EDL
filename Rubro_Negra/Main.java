@@ -1,4 +1,4 @@
-package teste;
+package Rubro_Negra;
 
 import java.util.Scanner;
 
@@ -27,7 +27,7 @@ public class Main {
         int op = imput.nextInt();
         switch (op) {
 
-            case 1 -> {
+            case 1 : {
                 System.out.println();
                 System.out.println("Digite o valor que deseja adicionar");
                 int valor = imput.nextInt();
@@ -37,7 +37,7 @@ public class Main {
 
             }
 
-            case 2 -> {
+            case 2 : {
                 pilha.pop_vermelho();
                 int Um_terco_utilizado = (pilha.capacidade / 3);
                 if ((pilha.size_vermelho() + pilha.size_preto()) <= Um_terco_utilizado) {
@@ -47,27 +47,27 @@ public class Main {
                 menu();
 
             }
-            case 3 -> {
+            case 3 : {
                 System.out.println();
                 System.out.println("topo da pilha :" + pilha.top_vermelho());
                 menu();
             }
 
-            case 4 -> {
+            case 4 : {
                 System.out.println();
                 System.out.println("tamanho da pilha :" + pilha.size_vermelho());
                 pilha.print();
                 menu();
             }
 
-            case 5 -> {
+            case 5 : {
                 System.out.println();
                 pilha.isEmpty_vermelho();
                 System.out.println();
                 menu();
             }
 
-            case 6 -> {
+            case 6 : {
                 System.out.println();
                 System.out.println("Digite o valor que deseja adicionar");
                 int valor = imput.nextInt();
@@ -76,7 +76,7 @@ public class Main {
                 menu();
             }
 
-            case 7 -> {
+            case 7 : {
                 pilha.pop_preto();
                 int Um_terco_utilizado = (pilha.capacidade / 3);
                 if ((pilha.size_vermelho() + pilha.size_preto()) <= Um_terco_utilizado) {
@@ -86,31 +86,31 @@ public class Main {
                 menu();
             }
 
-            case 8 -> {
+            case 8 : {
                 System.out.println();
                 System.out.println("topo da pilha :" + pilha.top_preto());
                 menu();
             }
 
-            case 9 -> {
+            case 9 : {
                 System.out.println();
                 System.out.println("tamanho da pilha :" + pilha.size_preto());
                 pilha.print();
                 menu();
             }
 
-            case 10 -> {
+            case 10 : {
                 System.out.println();
                 System.out.println(pilha.isEmpty_preto());
                 menu();
             }
 
-            case 11 -> {
+            case 11 : {
                 System.out.println("Saindo...");
                 break;
             }
 
-            default -> {
+            default : {
                 System.out.println("Opção inválida. Tente novamente.");
                 menu();
             }

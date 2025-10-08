@@ -1,4 +1,4 @@
-package teste;
+package Rubro_Negra;
 
 public class RubroNegra {
 

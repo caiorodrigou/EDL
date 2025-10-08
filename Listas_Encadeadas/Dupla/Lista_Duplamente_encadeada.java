@@ -1,4 +1,4 @@
-package Listas_Encadeadas;
+package Listas_Encadeadas.Dupla;
 
 public class Lista_Duplamente_encadeada {
     
