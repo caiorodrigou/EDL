@@ -102,4 +102,10 @@ public class Main_Encadeada {
 
         }
     }
+    public static void main(String[] args) {
+
+        Main_Encadeada main = new Main_Encadeada();
+        main.menu();
+
+    }
 }
