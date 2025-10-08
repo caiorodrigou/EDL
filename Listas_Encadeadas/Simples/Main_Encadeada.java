@@ -28,6 +28,7 @@ public class Main_Encadeada {
         switch (op) {
 
             case 1: {
+                System.out.println();
                 System.out.println("Digite o valor que deseja adicionar");
                 int valor = imput.nextInt();
                 Deque.Adicionar_I(valor);
@@ -46,6 +47,7 @@ public class Main_Encadeada {
             }
 
             case 3: {
+                System.out.println();
                 System.out.println("Digite o valor que deseja adicionar");
                 int valor = imput.nextInt();
                 Deque.Adicionar_F(valor);

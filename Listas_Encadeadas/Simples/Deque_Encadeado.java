@@ -111,6 +111,12 @@ public class Deque_Encadeado {
 
     public void print() {
         System.out.println();
+        if (tamanho == 0) {
+            System.out.println("-------------------------------");
+            System.out.println("Deque está vazio");
+            System.out.println("-------------------------------");
+            return;
+        }
         System.out.println("-------------------------------");
         System.out.print("Deque: ");
         Node agora = inicio;
