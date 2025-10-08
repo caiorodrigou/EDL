@@ -39,8 +39,7 @@ public class Main_Encadeada {
 
             case 2: {
 
-                Deque.Remover_I();
-                System.out.println();
+                System.out.println("Valor removido: " + Deque.Remover_I());
                 Deque.print();
                 menu();
 
@@ -58,8 +57,7 @@ public class Main_Encadeada {
 
             case 4: {
 
-                Deque.Remover_F();
-                System.out.println();
+                System.out.println("Valor removido: " + Deque.Remover_F());
                 Deque.print();
                 menu();
 
