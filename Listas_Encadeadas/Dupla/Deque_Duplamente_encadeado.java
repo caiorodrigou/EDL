@@ -1,4 +1,5 @@
 package Listas_Encadeadas.Dupla;
+
 import Listas_Encadeadas.DequeVaziaExcecao;
 
 public class Deque_Duplamente_encadeado {
@@ -18,8 +19,6 @@ public class Deque_Duplamente_encadeado {
             this.Anterior = null;
         }
     }
-
-    // Metodos
 
     public void Adicionar_I(Object Valor) {
         Node no = new Node(Valor);
@@ -56,15 +55,17 @@ public class Deque_Duplamente_encadeado {
     public Object Remover_I() {
 
         if (tamanho == 0) {
-            throw new DequeVaziaExcecao("Fila esta vazia");
+            throw new DequeVaziaExcecao("Deque esta vazio");
         }
 
         Object Valor_Removido = inicio.Valor;
-        inicio = inicio.Proximo;
-        inicio.Anterior = null;
 
-        if (inicio == null) {
+        if (tamanho == 1) {
+            inicio = null;
             fim = null;
+        } else {
+            inicio = inicio.Proximo;
+            inicio.Anterior = null;
         }
 
         tamanho--;
@@ -73,7 +74,7 @@ public class Deque_Duplamente_encadeado {
 
     public Object Remover_F() {
         if (tamanho == 0) {
-            throw new DequeVaziaExcecao("Fila esta vazia");
+            throw new DequeVaziaExcecao("Deque esta vazio");
         }
 
         Object Valor_Removido = fim.Valor;
@@ -88,7 +89,7 @@ public class Deque_Duplamente_encadeado {
         tamanho--;
         return Valor_Removido;
     }
-    
+
     public Object Inicio() {
         if (inicio == null) {
             throw new DequeVaziaExcecao("Deque não tem inicio");
@@ -105,7 +106,7 @@ public class Deque_Duplamente_encadeado {
 
     public boolean Vazia() {
         return tamanho == 0;
-    }   
+    }
 
     public int Tamanho() {
         return tamanho;
@@ -133,5 +134,5 @@ public class Deque_Duplamente_encadeado {
         System.out.println("-------------------------------");
         System.out.println();
     }
-    
+
 }
