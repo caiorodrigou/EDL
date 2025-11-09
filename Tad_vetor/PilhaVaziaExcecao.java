@@ -1,0 +1,7 @@
+package Tad_vetor;
+
+public class PilhaVaziaExcecao extends RuntimeException {
+    public PilhaVaziaExcecao(String err){
+        super(err);
+    }
+}
