@@ -107,7 +107,7 @@ public class Main {
 
             case 11 : {
                 System.out.println("Saindo...");
-                break;
+                System.exit(0);
             }
 
             default : {

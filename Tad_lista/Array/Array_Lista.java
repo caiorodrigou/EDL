@@ -1,8 +1,8 @@
 package Tad_lista.Array;
-import Tad_vetor.Array.Tad_vetorExcecao;
+import Tad_vetor.Array.Tad_ListaExcecao;
 
 public class Array_Lista{
-
+ 
     public int capacidade ;
     public int tamanho ;
     public Object[] elementos;
@@ -29,10 +29,10 @@ public class Array_Lista{
 
     public Object ReplaceElement(int r, Object o){ 
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if (r < 0 || r > tamanho) {
-            throw new Tad_vetorExcecao("indice invalido");
+            throw new Tad_ListaExcecao("indice invalido");
         }
         Object antigo_elemento = elementos[r];
         elementos[r] = o;
@@ -42,10 +42,10 @@ public class Array_Lista{
 
     public String swapElements(int r, int s){ 
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if ((r < 0 || r > tamanho)|| (s < 0 || s >= tamanho)) {
-            throw new Tad_vetorExcecao("indice invalido");
+            throw new Tad_ListaExcecao("indice invalido");
         }
 
         Object primeiro = elementos[r];
@@ -60,7 +60,7 @@ public class Array_Lista{
             aumentarTamanho();
         }
         if (r < 0 || r > tamanho) {
-            throw new Tad_vetorExcecao("indice invalido");
+            throw new Tad_ListaExcecao("indice invalido");
         }
         for (int i = tamanho - 1 ; i >= r ; i--){
             elementos[i + 1] = elementos[i];
@@ -74,7 +74,7 @@ public class Array_Lista{
             aumentarTamanho();
         }
         if (r < 0 || r >= tamanho) {
-            throw new Tad_vetorExcecao("indice invalido");
+            throw new Tad_ListaExcecao("indice invalido");
         }
         for(int i = tamanho - 1 ; i >= r + 1; i--){
             elementos[i + 1] = elementos[i];
@@ -104,10 +104,10 @@ public class Array_Lista{
 
     public Object remove(int r){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if (r < 0 || r > tamanho) {
-            throw new Tad_vetorExcecao("indice invalido");
+            throw new Tad_ListaExcecao("indice invalido");
         }
 
         Object elemento_removido = elementos[r];
@@ -123,7 +123,7 @@ public class Array_Lista{
     
     public boolean IsFirst(int r){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if (r == 0){
             return true;
@@ -133,7 +133,7 @@ public class Array_Lista{
 
     public boolean IsLast(int r){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if (r == tamanho - 1){
             return true;
@@ -141,23 +141,23 @@ public class Array_Lista{
         return false;
     }
 
-    public Object First(int r){
+    public Object First(){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         return elementos[0];
     }
 
-    public Object Last(int r){
+    public Object Last(){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         return elementos[tamanho-1];
     }
 
     public Object before(int r){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if (IsFirst(r)) {
             return null;
@@ -167,7 +167,7 @@ public class Array_Lista{
 
     public Object after(int r){
         if (IsEmpty()) {
-            throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
         }
         if (IsLast(r)) {
             return null;
@@ -177,10 +177,10 @@ public class Array_Lista{
 
     public Object ElemAtRank(int r){ 
     if (IsEmpty()) {
-        throw new Tad_vetorExcecao("Tad_Vetor esta vazio");
+        throw new Tad_ListaExcecao("Tad_Lista esta vazio");
     }
     if (r < 0 || r > tamanho) { 
-        throw new Tad_vetorExcecao("indice invalido");
+        throw new Tad_ListaExcecao("indice invalido");
     }
     return elementos[r];
 }
@@ -200,12 +200,12 @@ public class Array_Lista{
         System.out.println();
         if (IsEmpty()) {
             System.out.println("-------------------------------");
-            System.out.println("Tad_Vetor está vazio");
+            System.out.println("Tad_Lista esta vazio");
             System.out.println("-------------------------------");
             return null;
         }
         System.out.println("-------------------------------");
-        System.out.print("Tad_Vetor: ");
+        System.out.print("Tad_Lista : ");
         for (int i = 0; i < capacidade; i++) {
             System.out.print(elementos[i] + " ");
         }

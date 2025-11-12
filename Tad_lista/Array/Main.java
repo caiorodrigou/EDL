@@ -1,6 +1,6 @@
 package Tad_lista.Array;
 
-import Tad_vetor.Array.Tad_vetorExcecao;
+import Tad_Lista.Array.Tad_ListaExcecao;
 import java.util.Scanner;
 
 public class Main {
@@ -22,6 +22,8 @@ public class Main {
         System.out.println("8 - remove");
         System.out.println("9 - IsEmpty");
         System.out.println("10 - Size");
+        System.out.println("10 - First");
+        System.out.println("10 - Last");
         System.out.println("11 - Sair");
         System.out.println("----------------------");
         System.out.print("Qual operação deseja fazer? ");
@@ -41,7 +43,7 @@ public class Main {
                 case 1: {
                     System.out.print("Qual índice você quer acessar (0 a " + (lista.tamanho - 1) + ")? ");
                     int rank = imput.nextInt();
-                    Object resposta = lista.ElemAtRank(rank); // <--- USO DO NOVO MÉTODO
+                    Object resposta = lista.ElemAtRank(rank);
                     System.out.println("Elemento no índice " + rank + " é: " + resposta);
                     lista.print();
                     menu();
@@ -145,7 +147,7 @@ public class Main {
                 }
 
             }
-        } catch (Tad_vetorExcecao e) {
+        } catch (Tad_ListaExcecao e) {
             System.out.println("ERRO: " + e.getMessage());
             lista.print();
             menu();
