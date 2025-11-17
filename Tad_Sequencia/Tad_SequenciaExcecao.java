@@ -1,4 +1,4 @@
-package Tad_lista.Dupla_encadeado;
+package Tad_Sequencia;
 
 public class Tad_SequenciaExcecao extends RuntimeException {
     public Tad_SequenciaExcecao(String err){
