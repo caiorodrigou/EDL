@@ -1,7 +1,7 @@
-package Tad_vetor.Array;
+package Tad_lista.Array;
 
-public class Tad_vetorExcecao extends RuntimeException {
-    public Tad_vetorExcecao(String err){
+public class Tad_ListaExcecao extends RuntimeException {
+    public Tad_ListaExcecao(String err){
         super(err);
     }
 }

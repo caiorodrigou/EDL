@@ -1,5 +1,4 @@
-package Tad_lista.Dupla_encadeado;
-
+package Tad_Sequencia;
 public class DuplamenteEncadeado {
 
     public static class Node {
@@ -24,19 +23,78 @@ public class DuplamenteEncadeado {
         cabeca.next = cauda;
         tamanho = 0;
     }
+    //genéricos----------------------------------------
 
-    public Node getNo(Node no) {
-     
-        if (no == null) {
-        throw new Tad_ListaExcecao("A posição (nó) não pode ser nula.");
+    public int size() {
+        return tamanho; 
+    }
+
+    public boolean IsEmpty() { 
+        return tamanho == 0;
+    }
+
+    //Vetor--------------------------------------------
+
+    public Object ElemAtRank(int r){ 
+    if (IsEmpty()) {
+        throw new Tad_SequenciaExcecao("Tad_Lista esta vazio");
+    }
+    if (r < 0 || r > tamanho) { 
+        throw new Tad_SequenciaExcecao("indice invalido");
+    }
+    return elementos[r];
+    }
+
+    public Object replaceAtRank( int r, Object elemento) {
+        return null;
+
+    }
+
+    public void insertAtRank(int r, Object elemento) {
+        
+    }
+
+    public Object removeAtRank(int r) {
+        return null;
+   
+    }
+
+    //Lista--------------------------------------------
+
+    public Object First(){
+        if (IsEmpty()) {
+            throw new Tad_SequenciaExcecao("Tad_Lista esta vazio");
         }
-        if (no == cabeca) {
-            throw new Tad_ListaExcecao("A posição não pode ser a sentinela 'cabeca'.");
+        Node primeiro = cabeca.next;
+        return primeiro.elemento;
+    }
+
+    public Object Last(){
+        if (IsEmpty()) {
+            throw new Tad_SequenciaExcecao("Tad_Lista esta vazio");
         }
-        if (no == cauda) {
-            throw new Tad_ListaExcecao("A posição não pode ser a sentinela 'cauda'.");
+        Node ultimo = cauda.prev;
+        return ultimo.elemento;
+    }
+
+    public Object before(Node no){
+        if (IsEmpty()) {
+            throw new Tad_SequenciaExcecao("Tad_Lista esta vazio");
         }
-        return no;
+        if (no == cabeca.next) {
+            return null;
+        }
+        return no.prev.elemento;
+    }
+
+    public Object after(Node no){
+        if (IsEmpty()) {
+            throw new Tad_SequenciaExcecao("Tad_Lista esta vazio");
+        }
+        if (no == cauda.prev) {
+            return null;
+        }
+        return no.next.elemento;
     }
 
     public Object replaceElement( Node no, Object elemento) {
@@ -44,7 +102,7 @@ public class DuplamenteEncadeado {
         Object antigo_valor = novo.elemento;
         novo.elemento = elemento;
         return antigo_valor;
-    }
+        }
 
     public String swapElement( Node no, Node no2) {
         Node novo1 = getNo(no);
@@ -93,21 +151,38 @@ public class DuplamenteEncadeado {
         tamanho++;
     }
 
-    public Object removerNo(Node no) throws Tad_ListaExcecao {
-    Node removido = getNo(no);
-    Object elemento = removido.elemento;  
-    removido.prev.next = removido.next;
-    removido.next.prev = removido.prev;
-    removido.prev = null;
-    removido.next = null;
-    removido.elemento = null;
-    tamanho--;
-    return elemento;
+    public Object removerNo(Node no) throws Tad_SequenciaExcecao {
+        Node removido = getNo(no);
+        Object elemento = removido.elemento;  
+        removido.prev.next = removido.next;
+        removido.next.prev = removido.prev;
+        removido.prev = null;
+        removido.next = null;
+        removido.elemento = null;
+        tamanho--;
+        return elemento;
+    }
+
+    //ponte--------------------------------------------
+
+
+    public Node getNo(Node no) {
+     
+        if (no == null) {
+        throw new Tad_SequenciaExcecao("A posição (nó) não pode ser nula.");
+        }
+        if (no == cabeca) {
+            throw new Tad_SequenciaExcecao("A posição não pode ser a sentinela 'cabeca'.");
+        }
+        if (no == cauda) {
+            throw new Tad_SequenciaExcecao("A posição não pode ser a sentinela 'cauda'.");
+        }
+        return no;
     }
 
     public Object buscarNo(Object elemento){
         if (IsEmpty()) {
-            throw new Tad_ListaExcecao("A lista está vazia.");
+            throw new Tad_SequenciaExcecao("A lista está vazia.");
         }
         Node atual = cabeca.next;
         while (atual != cauda) {
@@ -116,74 +191,7 @@ public class DuplamenteEncadeado {
             }
             atual = atual.next;
         }
-        throw new Tad_ListaExcecao("Elemento não encontrado.");
-    }
-
-    // padrão----------------------------------------------
-
-    public int size() {
-        return tamanho; 
-    }
-
-    public boolean IsEmpty() { 
-        return tamanho == 0;
-    }
-
-    // novos-----------------------------------------------
-
-    public boolean IsFirst(Node no){
-        if (IsEmpty()) {
-            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
-        }
-        if (cabeca.next == no){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean IsLast(Node no){
-        if (IsEmpty()) {
-            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
-        }
-        if (cauda.prev == no){
-            return true;
-        }
-        return false;
-    }
-
-    public Object First(){
-        if (IsEmpty()) {
-            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
-        }
-        Node primeiro = cabeca.next;
-        return primeiro.elemento;
-    }
-
-    public Object Last(){
-        if (IsEmpty()) {
-            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
-        }
-        Node ultimo = cauda.prev;
-        return ultimo.elemento;
-    }
-    public Object before(Node no){
-        if (IsEmpty()) {
-            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
-        }
-        if (IsFirst(no)) {
-            return null;
-        }
-        return no.prev.elemento;
-    }
-
-    public Object after(Node no){
-        if (IsEmpty()) {
-            throw new Tad_ListaExcecao("Tad_Lista esta vazio");
-        }
-        if (IsLast(no)) {
-            return null;
-        }
-        return no.next.elemento;
+        throw new Tad_SequenciaExcecao("Elemento não encontrado.");
     }
 
     // printar---------------------------------------------

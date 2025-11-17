@@ -1,6 +1,5 @@
 package Tad_lista.Array;
 
-import Tad_Lista.Array.Tad_ListaExcecao;
 import java.util.Scanner;
 
 public class Main {

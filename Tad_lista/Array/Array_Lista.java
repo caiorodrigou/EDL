@@ -1,5 +1,4 @@
 package Tad_lista.Array;
-import Tad_vetor.Array.Tad_ListaExcecao;
 
 public class Array_Lista{
  
@@ -183,7 +182,7 @@ public class Array_Lista{
         throw new Tad_ListaExcecao("indice invalido");
     }
     return elementos[r];
-}
+    }
 
     //padrao------------------------------------------------------
 
