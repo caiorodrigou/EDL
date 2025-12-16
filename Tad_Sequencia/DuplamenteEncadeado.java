@@ -33,7 +33,7 @@ public class DuplamenteEncadeado {
         return tamanho == 0;
     }
 
-    private Node getNo(int rank) {
+    public Node getNo(int rank) {
      
         if (rank < 0 || rank >= tamanho) {
             throw new Tad_SequenciaExcecao("Rank inválido: " + rank); 
@@ -75,7 +75,7 @@ public class DuplamenteEncadeado {
     }
 
     public void insertAtRank(int r, Object elemento) {
-        if (IsEmpty()) {
+        if (r < 0 || r > tamanho) {
         throw new Tad_SequenciaExcecao("Tad_Sequencia esta vazio");
         }
         Node no = getNo(r);
