@@ -59,7 +59,7 @@ public class ArvoreBinaria {
         if (isRoot(node)) {
             return 0;
         } else {
-            return 1 + depth(node.pai);
+            return (1 + depth(node.pai));
         }
     }
     //verificar---------------------------------------------------
@@ -94,6 +94,31 @@ public class ArvoreBinaria {
     }
 
     public void insert(Object elemento) {
+        Comparable<Object> valor = (Comparable<Object>) elemento;
+        if (root == null) {
+            root = new Node(elemento, null, null, null);
+            size++;
+            return;
+        } 
+        Node atual = root;
+        Node pai = null;
+        while (atual != null) {
+            pai = atual;
+            if (valor.compareTo(atual.elemento) < 0) {
+                atual = atual.left;
+            } else {
+                atual = atual.right;    
+            }
+        }
+
+        Node novoNo = new Node(elemento, pai, null, null);
+
+        if (valor.compareTo(pai.elemento) < 0) {
+            pai.left = novoNo;
+        } else {
+            pai.right = novoNo;
+        }
+        size++;
     }
 
     public Node search(Object elemento) {
