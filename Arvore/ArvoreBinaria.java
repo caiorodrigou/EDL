@@ -1,6 +1,8 @@
 package Arvore;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ArvoreBinaria {
 
@@ -62,7 +64,7 @@ public class ArvoreBinaria {
             return (1 + depth(node.pai));
         }
     }
-    //verificar---------------------------------------------------
+   
     public int height(Node node) {
         if (node == null) {
             return 0;
@@ -91,6 +93,25 @@ public class ArvoreBinaria {
             return false;
         }
         return true;
+    }
+    
+    public Node search(Object elemento, Node atual) {
+        Comparable<Object> valor = (Comparable<Object>) elemento;
+        if (atual == null) {
+            return null;
+        }
+
+        int cmp = valor.compareTo(atual.elemento);
+    
+        if (cmp < 0) {
+            return search(elemento, atual.left);
+        }
+        else if (cmp == 0) {
+            return atual;
+        }
+        else {
+            return search(elemento, atual.right);
+        }
     }
 
     public void insert(Object elemento) {
@@ -121,33 +142,91 @@ public class ArvoreBinaria {
         size++;
     }
 
-    public Node search(Object elemento) {
-        return null;
-    }
+    public Node remove(Node atual, Object elemento) {
+        if (atual == null) {
+            return null; 
+        }
 
-    public void remove(Object elemento) {
+        Comparable chave = (Comparable) elemento;
+        int cmp = chave.compareTo(atual.elemento);
+
+        if (cmp < 0) {
+            atual.left = remove(atual.left, elemento);
+        } else if (cmp > 0) {
+            atual.right = remove(atual.right, elemento);
+        } else {
+            size--;
+    
+            if (atual.left == null) return atual.right;
+            if (atual.right == null) return atual.left;
+
+            Node sucessor = atual.right;
+            while (sucessor.left != null) sucessor = sucessor.left;
+
+            atual.elemento = sucessor.elemento;
+            size++;
+            atual.right = remove(atual.right, sucessor.elemento);
+            if (atual.right != null) atual.right.pai = atual;
+        }
+        return atual;
     }
 
     public Iterator<Node> preorder() {
-        return null;
+        List<Node> lista = new ArrayList<>();
+        preOrderRecursivo(root, lista);
+        return lista.iterator();
+    }
+    private void preOrderRecursivo(Node n, List<Node> lista) {
+        if (n == null) return;
+        lista.add(n); 
+        preOrderRecursivo(n.left, lista);
+        preOrderRecursivo(n.right, lista);
     }
 
     public Iterator<Node> inOrder() {
-        return null;
+        List<Node> lista = new ArrayList<>();
+        inOrderRecursivo(root, lista);
+        return lista.iterator();
+    }
+    private void inOrderRecursivo(Node n, List<Node> lista) {
+        if (n == null) return;
+        inOrderRecursivo(n.left, lista);
+        lista.add(n); 
+        inOrderRecursivo(n.right, lista);
     }
 
     public Iterator<Node> postOrder() {
-        return null;
+        List<Node> lista = new ArrayList<>();
+        postOrderRecursivo(root, lista);
+        return lista.iterator();
+    }
+    private void postOrderRecursivo(Node n, List<Node> lista) {
+        if (n == null) return;
+        postOrderRecursivo(n.left, lista);
+        postOrderRecursivo(n.right, lista);
+        lista.add(n); 
     }
 
     public Iterator<Node> nodes() {
-        return null;
+        return inOrder();
     }
 
     public Iterator<Object> elements() {
-        return null;
+        List<Object> listaElementos = new ArrayList<>();
+        Iterator<Node> it = nodes();
+        while (it.hasNext()) {
+            listaElementos.add(it.next().elemento);
+        }
+        return listaElementos.iterator();
     }
 
-    public void desenharArvore() {
+    public void desenharHorizontal(Node no, int nivel) {
+        if (no == null) return;
+
+        desenharHorizontal(no.right, nivel + 1);
+
+        System.out.println("       ".repeat(nivel) + "── " + no.elemento);
+
+        desenharHorizontal(no.left, nivel + 1);
     }
 }
